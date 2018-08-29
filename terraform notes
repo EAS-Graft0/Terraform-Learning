@@ -59,7 +59,20 @@ if you want to change the plan you can create a changes.terraform file
 
 
 terraform vars should be in their own file
+	vars should be used to hide secrets and for elements that might change
+	using variables will make terraform files reusable 
+
+aws amis are different per region
+
 
 terraform files should be seperated to keep things modular
 
 credentials for a provider should not be in the repository or working folder but stored somewhere secured and accessed this way too
+
+use variables in file name with string interpolation ${myvar}
+
+
+seperate files into
+	provider.tf which uses variables
+	vars.tf which declares our variables
+	terraform.tfvars which has values for variables in and is in the git ignore file so that it doesn't get added to repo
