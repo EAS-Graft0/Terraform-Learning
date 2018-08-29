@@ -1,0 +1,36 @@
+create provider
+
+create resource group
+
+create network
+
+create subnet
+
+create ip
+
+create nsg
+
+reate nic
+
+create account
+
+create vm
+
+
+
+
+init, plan, apply
+
+
+terraform more for the infrastrcutre itself, after that has spun up you can use something like ansible, puppet or chef
+
+
+
+
+
+
+
+terraform needs initializing first
+
+terraform needs a tf file which contains provider with creds and provider specific keys and resource
+
