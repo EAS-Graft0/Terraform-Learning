@@ -1,21 +1,22 @@
-create provider
+creating an azure terraform instance: {
+	create provider
 
-create resource group
+	create resource group
 
-create network
+	create network
 
-create subnet
+	create subnet
 
-create ip
+	create ip
 
-create nsg
+	create nsg
 
-reate nic
+	reate nic
 
-create account
+	create account
 
-create vm
-
+	create vm
+}
 
 
 
@@ -34,3 +35,31 @@ terraform needs initializing first
 
 terraform needs a tf file which contains provider with creds and provider specific keys and resource
 
+
+
+apply will create a resource based on a resource action which will show on the output
+
+it then tells you what actions happen and the output of them actions
+
+(aws amis must match their type)
+
+
+terraform destroy, destroys the instance you've created
+
+terraform apply without an arugment is just a shortcut for terraform plan -out file then terraform apply
+
+to be specific do: {
+	terraform plan -out myfile
+	then terraform apply myfile
+}
+
+terraform plan is good to see what changes would be made before you carry out the task
+
+if you want to change the plan you can create a changes.terraform file
+
+
+terraform vars should be in their own file
+
+terraform files should be seperated to keep things modular
+
+credentials for a provider should not be in the repository or working folder but stored somewhere secured and accessed this way too
