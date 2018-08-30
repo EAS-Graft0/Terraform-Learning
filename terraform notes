@@ -76,3 +76,57 @@ seperate files into
 	provider.tf which uses variables
 	vars.tf which declares our variables
 	terraform.tfvars which has values for variables in and is in the git ignore file so that it doesn't get added to repo
+
+
+in vars.tf you can create objects such as amis, change type to map, to loop over, then depending on the region you pass in it will select a different image
+
+
+chef is integrated with terraform
+
+to run ansible scripts you run terraform apply and output the ip and then run your ansible playbook on that ip address
+
+file uploads can be use with remote-exec to execute a script on the instance you spin up
+
+
+use the 'provisioner' tool to upload a file
+
+need source and destination
+
+
+
+this is to point to a resource file
+provisioner "file" {
+	source = "app.conf"
+	destination = "/etc/myapp.conf"
+	connection {
+	user = "${var.instance_username}"
+	password = "${var.instance_password}"
+	}
+} 
+provisioner file goes inside resource
+this is to point to a resource file
+
+
+to upload a script
+	provisioner "file" {
+		source = "script.sh"
+		destination = "/opt/script.sh"
+		connection {
+			user = "{var.instance_username}"
+			private_key = "{file(${var.path_to_private_key})}"
+		}
+	}
+to upload a script using ssh keys
+
+to run a script
+	provisioner "remote-exec" {
+		inline = [
+			"chmod +x /opt/script.sh",
+			"/opt/scripts.sh arguments"
+		]
+	}
+	first we chmod it to allow it to be run as an executable then we run it
+to run a script
+
+
+if ssh is to be used then use connection
